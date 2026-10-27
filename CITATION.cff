@@ -1,0 +1,27 @@
+﻿cff-version: 1.2.0
+message: "If you use this evaluation artifact in research or technical work, please cite it using these metadata."
+title: "Odysseus Local AI Windows Evaluation"
+type: software
+
+authors:
+  - family-names: "Shakeel"
+    given-names: "Talha"
+
+abstract: >-
+  A reproducible systems evaluation of the Odysseus self-hosted agentic AI
+  workspace on constrained Windows consumer hardware, covering local LLM
+  inference, RAG, vector memory, agent-tool reliability, filesystem boundary
+  behavior, deployment observations, and reproducibility controls.
+
+keywords:
+  - local LLM
+  - agentic AI
+  - RAG
+  - AI agents
+  - Ollama
+  - reproducibility
+  - software evaluation
+  - Windows
+  - GPU benchmarking
+
+license: MIT
