@@ -1,0 +1,5 @@
+﻿ODYSSEUS SYNTHETIC MEMORY TEST
+
+The verification codename for the Odysseus local experiment is COBALT-RIVER-731.
+
+This fact is synthetic and exists solely for controlled vector-memory testing.

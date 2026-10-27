@@ -1,0 +1,50 @@
+﻿{
+    "timestamp":  "2026-10-25T23:30:53+08:00",
+    "benchmark":  {
+                      "model":  "qwen3:4b",
+                      "context":  4096,
+                      "requested_tokens":  128,
+                      "temperature":  0,
+                      "think":  false,
+                      "keep_alive":  "10m",
+                      "warm_run":  true
+                  },
+    "generation":  {
+                       "generated_tokens":  128,
+                       "generation_tps":  25.68,
+                       "prompt_tokens":  50,
+                       "prompt_tps":  324.06,
+                       "load_duration_ms":  4.14,
+                       "total_duration_sec":  5.15,
+                       "done_reason":  "length",
+                       "response_characters":  474,
+                       "response_preview":  "We are to output integers from 1 to 500 in order, separated by commas only.\n We must not use ellipsis, no abbreviations, no explanation, and we must go all the way to 500 without stopping early.\n\n We "
+                   },
+    "memory":  {
+                   "baseline_free_ram_gb":  5.6,
+                   "post_free_ram_gb":  4.1,
+                   "observed_ram_delta_gb":  1.5
+               },
+    "gpu":  {
+                "baseline":  {
+                                 "name":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+                                 "memory_used_mib":  994,
+                                 "memory_total_mib":  4096,
+                                 "gpu_utilization_pct":  0,
+                                 "memory_utilization_pct":  0
+                             },
+                "post_test":  {
+                                  "name":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+                                  "memory_used_mib":  3320,
+                                  "memory_total_mib":  4096,
+                                  "gpu_utilization_pct":  0,
+                                  "memory_utilization_pct":  0
+                              },
+                "observed_vram_delta_mib":  2326
+            },
+    "ollama":  {
+                   "version":  "0.34.4",
+                   "baseline_ps":  "NAME    ID    SIZE    PROCESSOR    CONTEXT    UNTIL",
+                   "post_test_ps":  "NAME        ID              SIZE      PROCESSOR          CONTEXT    UNTIL              \r\nqwen3:4b    359d7dd4bcda    3.5 GB    33%/67% CPU/GPU    4096       9 minutes from now"
+               }
+}

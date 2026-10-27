@@ -1,0 +1,5 @@
+﻿test_id,test_type,query_target,expected_result,observed_result,status,evidence,notes
+RAG-01,direct_vector_retrieval,synthetic indexed document,Relevant indexed document returned,Document returned through custom Ollama embedding lane with similarity 0.5693 vector score 0.5132 and keyword score 0.7,PASS,VectorRAG direct-query evidence,Confirms retrieval backend independently of chat UI
+RAG-02,exact_fact_retrieval,SILVER-MOON-482,Return exact synthetic launch-location marker,SILVER-MOON-482 returned with one source,PASS,Odysseus UI exact-retrieval evidence,Synthetic document only
+RAG-03,semantic_fact_retrieval,AURORA-NODE,Recover device marker from semantic query,AURORA-NODE returned with one source,PASS,Odysseus UI semantic-retrieval evidence,Tests semantic retrieval rather than exact-string lookup
+RAG-04,restart_persistence,927451,Recover indexed validation number after service restart,927451 returned with source after restart,PASS,Odysseus UI post-restart evidence,Demonstrates persistence in tested configuration only

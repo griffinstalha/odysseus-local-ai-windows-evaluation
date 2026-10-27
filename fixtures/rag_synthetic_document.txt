@@ -1,0 +1,9 @@
+﻿ODYSSEUS SYNTHETIC RAG TEST DOCUMENT
+
+Launch location: SILVER-MOON-482
+
+The designated test device is AURORA-NODE.
+
+The validation number for this reproducibility experiment is 927451.
+
+This document contains synthetic identifiers created solely for controlled retrieval testing.

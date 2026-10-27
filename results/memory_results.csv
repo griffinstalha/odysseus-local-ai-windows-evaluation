@@ -1,0 +1,4 @@
+﻿test_id,test_type,memory_marker,expected_result,observed_result,status,evidence,notes
+MEM-01,manual_memory_storage,COBALT-RIVER-731,Synthetic fact stored in local vector memory,Memory entry created successfully,PASS,Odysseus memory-storage evidence,Manual synthetic memory only
+MEM-02,cross_conversation_recall,COBALT-RIVER-731,Fresh conversation retrieves stored synthetic fact,Fresh chat returned COBALT-RIVER-731 with one recalled memory,PASS,Odysseus fresh-chat recall evidence,Confirms retrieval across conversations in tested configuration
+MEM-03,persistent_vector_memory,COBALT-RIVER-731,Stored memory remains available through local vector-memory backend,Memory remained retrievable after conversation change,PASS,Odysseus vector-memory evidence,Not a comprehensive long-term retention benchmark

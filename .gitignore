@@ -1,0 +1,93 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+chroma-venv/
+
+# Local databases / persistent runtime data
+chroma-data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Ollama / model artifacts
+.ollama/
+models/
+*.gguf
+*.safetensors
+*.bin
+
+# Secrets / credentials
+.env
+.env.*
+credentials.txt
+credentials.*
+secrets.txt
+secrets.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Auth / cookies / sessions
+cookies*
+session*
+sessions/
+auth*
+token*
+tokens/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary / logs / caches
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Local screenshots and raw evidence are private by default.
+# Only sanitized evidence should be moved to public-evidence/.
+raw-evidence/*
+!raw-evidence/.gitkeep
+
+# Public evidence may be committed after manual review.
+# public-evidence/
+
+# Local/private notes that are not intended for release.
+notes/private/
+notes/drafts/
+
+# Generated archives / release bundles
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# PowerShell / shell history
+ConsoleHost_history.txt
+.ps_history
+
+# Local machine-specific paths/config
+local-config/
+machine-local/

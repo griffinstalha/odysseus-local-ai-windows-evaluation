@@ -1,0 +1,71 @@
+﻿
+ODYSSEUS LOCAL AI WINDOWS EVALUATION
+====================================
+
+Snapshot time
+-------------
+2026-10-25T16:30:40+08:00
+
+
+OPERATING SYSTEM
+----------------
+Caption : Microsoft Windows 11 Pro
+Version : 10.0.26200
+Build   : 26200
+
+
+CPU
+---
+Name                : AMD Ryzen 7 5800H with Radeon Graphics
+Physical cores      : 8
+Logical processors  : 16
+
+
+SYSTEM MEMORY
+-------------
+Total RAM : 15.86 GB
+Free RAM  : 5.28 GB
+
+
+GPU
+---
+NVIDIA GeForce RTX 3050 Laptop GPU, 621.01, 4096 MiB
+
+
+PYTHON
+------
+Version    : Python 3.12.10
+Executable : D:\Projects\odysseus\odysseus\venv\Scripts\python.exe
+
+
+OLLAMA
+------
+CLI version : ollama version is 0.34.4
+API version : 0.34.4
+
+
+INSTALLED OLLAMA MODELS
+-----------------------
+NAME                ID              SIZE      MODIFIED    
+qwen3:4b            359d7dd4bcda    2.5 GB    6 weeks ago    
+all-minilm:l6-v2    1b226e2802db    45 MB     7 weeks ago    
+qwen3:1.7b          8f68893c685c    1.4 GB    7 weeks ago
+
+
+CURRENTLY LOADED OLLAMA MODELS
+------------------------------
+NAME    ID    SIZE    PROCESSOR    CONTEXT    UNTIL
+
+
+CHROMADB
+--------
+Version : 1.5.9
+
+
+ODYSSEUS GIT
+------------
+Repository : D:\Projects\odysseus\odysseus
+Branch     : experiment-v1.0.3-windows
+Commit     : 7b776b6ceb090f2d5374e1c0c7c8f2dae7fe81a7
+Git state  : CLEAN
+

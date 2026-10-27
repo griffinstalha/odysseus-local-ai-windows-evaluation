@@ -1,0 +1,13 @@
+﻿metric,qwen3_1.7b,qwen3_4b
+runs,3,3
+ollama_version,0.34.4,0.34.4
+context,4096,4096
+requested_tokens,128,128
+median_generation_tps,106.86,24.70
+mean_generation_tps,93.53,24.23
+min_generation_tps,66.36,22.31
+max_generation_tps,107.37,25.68
+sample_stddev_tps,23.53,1.73
+median_ram_delta_gb,0.67,1.50
+median_vram_delta_mib,1716,2312
+processor_allocation,100% GPU,33% CPU / 67% GPU

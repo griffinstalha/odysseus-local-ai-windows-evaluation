@@ -1,0 +1,7 @@
+﻿ODYSSEUS AGENT TOOL TEST
+
+This file is a synthetic fixture for controlled read_file testing.
+
+Verification phrase: ORBIT-GLASS-219
+
+No private or production information is contained in this file.

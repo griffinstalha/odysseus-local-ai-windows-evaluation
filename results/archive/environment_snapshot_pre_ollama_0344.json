@@ -1,0 +1,37 @@
+﻿{
+    "timestamp":  "2026-09-24T01:38:30+08:00",
+    "operating_system":  {
+                             "caption":  "Microsoft Windows 11 Pro",
+                             "version":  "10.0.26200",
+                             "build_number":  "26200"
+                         },
+    "cpu":  {
+                "name":  "AMD Ryzen 7 5800H with Radeon Graphics",
+                "cores":  8,
+                "logical_processors":  16
+            },
+    "memory":  {
+                   "total_ram_gb":  15.86,
+                   "free_ram_gb":  6.52
+               },
+    "gpu":  {
+                "nvidia_smi":  "NVIDIA GeForce RTX 3050 Laptop GPU, 616.56, 4096 MiB"
+            },
+    "python":  {
+                   "version":  "Python 3.12.10",
+                   "executable":  "D:\\Projects\\odysseus\\odysseus\\venv\\Scripts\\python.exe"
+               },
+    "ollama":  {
+                   "cli_version":  "ollama version is 0.34.0",
+                   "api_version":  "0.34.0"
+               },
+    "chromadb":  {
+                     "version":  "1.5.9"
+                 },
+    "odysseus":  {
+                     "repository":  "D:\\Projects\\odysseus\\odysseus",
+                     "branch":  "experiment-v1.0.3-windows",
+                     "commit":  "7b776b6ceb090f2d5374e1c0c7c8f2dae7fe81a7",
+                     "git_state":  "CLEAN"
+                 }
+}

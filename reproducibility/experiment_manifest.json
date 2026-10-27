@@ -1,0 +1,177 @@
+﻿{
+    "schema_version":  "1.0",
+    "project":  {
+                    "name":  "Odysseus Local AI Windows Evaluation",
+                    "description":  "Reproducible systems evaluation of a self-hosted agentic AI workspace on constrained Windows consumer hardware.",
+                    "evaluation_epoch":  "2026-10-25",
+                    "platform":  "Windows 11"
+                },
+    "source":  {
+                   "upstream_repository":  "https://github.com/odysseus-dev/odysseus",
+                   "upstream_baseline_commit":  "451900fc151554f4c8654d1e4d3dadc1d029b047",
+                   "evaluation_branch":  "experiment-v1.0.3-windows",
+                   "evaluation_commit":  "7b776b6ceb090f2d5374e1c0c7c8f2dae7fe81a7",
+                   "working_tree_state":  "clean",
+                   "local_patch":  "Imported typing.Any in src/agent_loop.py to resolve startup NameError on tested baseline."
+               },
+    "environment":  {
+                        "os":  "Microsoft Windows 11 Pro",
+                        "os_version":  "10.0.26200",
+                        "os_build":  "26200",
+                        "cpu":  "AMD Ryzen 7 5800H",
+                        "cpu_physical_cores":  8,
+                        "cpu_logical_processors":  16,
+                        "ram_gb":  15.86,
+                        "gpu":  "NVIDIA GeForce RTX 3050 Laptop GPU",
+                        "gpu_vram_mib":  4096,
+                        "nvidia_driver":  "621.01",
+                        "python":  "3.12.10",
+                        "ollama":  "0.34.4",
+                        "chromadb":  "1.5.9"
+                    },
+    "models":  [
+                   {
+                       "name":  "qwen3:1.7b",
+                       "id":  "8f68893c685c",
+                       "stored_size":  "1.4 GB"
+                   },
+                   {
+                       "name":  "qwen3:4b",
+                       "id":  "359d7dd4bcda",
+                       "stored_size":  "2.5 GB"
+                   },
+                   {
+                       "name":  "all-minilm:l6-v2",
+                       "id":  "1b226e2802db",
+                       "stored_size":  "45 MB",
+                       "embedding_dimension":  384
+                   }
+               ],
+    "benchmark_configuration":  {
+                                    "context":  4096,
+                                    "requested_generation_tokens":  128,
+                                    "temperature":  0,
+                                    "thinking_requested":  false,
+                                    "warmup":  true,
+                                    "runs_per_model":  3,
+                                    "model_order":  [
+                                                        "qwen3:1.7b",
+                                                        "qwen3:4b",
+                                                        "qwen3:1.7b",
+                                                        "qwen3:4b",
+                                                        "qwen3:1.7b",
+                                                        "qwen3:4b"
+                                                    ]
+                                },
+    "benchmark_results":  {
+                              "qwen3_1_7b":  {
+                                                 "generation_tps_runs":  [
+                                                                             66.36,
+                                                                             106.86,
+                                                                             107.37
+                                                                         ],
+                                                 "median_generation_tps":  106.86,
+                                                 "mean_generation_tps":  93.53,
+                                                 "min_generation_tps":  66.36,
+                                                 "max_generation_tps":  107.37,
+                                                 "sample_stddev_tps":  23.53,
+                                                 "median_ram_delta_gb":  0.67,
+                                                 "median_vram_delta_mib":  1716,
+                                                 "processor_allocation":  "100% GPU"
+                                             },
+                              "qwen3_4b":  {
+                                               "generation_tps_runs":  [
+                                                                           22.31,
+                                                                           24.7,
+                                                                           25.68
+                                                                       ],
+                                               "median_generation_tps":  24.7,
+                                               "mean_generation_tps":  24.23,
+                                               "min_generation_tps":  22.31,
+                                               "max_generation_tps":  25.68,
+                                               "sample_stddev_tps":  1.73,
+                                               "median_ram_delta_gb":  1.5,
+                                               "median_vram_delta_mib":  2312,
+                                               "processor_allocation":  "33% CPU / 67% GPU"
+                                           }
+                          },
+    "experimental_results":  {
+                                 "rag":  {
+                                             "direct_vector_retrieval":  "PASS",
+                                             "exact_fact_retrieval":  "PASS",
+                                             "semantic_fact_retrieval":  "PASS",
+                                             "restart_persistence":  "PASS"
+                                         },
+                                 "memory":  {
+                                                "manual_storage":  "PASS",
+                                                "cross_conversation_recall":  "PASS",
+                                                "persistent_vector_memory":  "PASS"
+                                            },
+                                 "agent_tools":  {
+                                                     "qwen3_1_7b_natural_read_file":  "FAIL",
+                                                     "qwen3_4b_natural_read_file":  "FAIL",
+                                                     "forced_protocol_parser":  "PASS",
+                                                     "forced_read_file_execution":  "PASS",
+                                                     "forced_end_to_end_workflow":  "PASS"
+                                                 },
+                                 "security_boundary":  {
+                                                           "read_file_relative_escape":  "BLOCKED",
+                                                           "read_file_absolute_escape":  "BLOCKED",
+                                                           "write_file_relative_escape":  "BLOCKED",
+                                                           "write_file_absolute_escape":  "BLOCKED",
+                                                           "bash_outside_workspace_read":  "ALLOWED",
+                                                           "bash_outside_workspace_write":  "ALLOWED",
+                                                           "python_outside_workspace_read":  "ALLOWED",
+                                                           "shell_ui_request_mismatch":  "OBSERVED"
+                                                       }
+                             },
+    "research_questions":  [
+                               "RQ1: Can a self-hosted agentic AI workspace operate practically on consumer Windows hardware with 16 GB RAM and a 4 GB laptop GPU?",
+                               "RQ2: How do Qwen3 1.7B and Qwen3 4B differ in throughput, resource use, output compliance, and agent suitability?",
+                               "RQ3: How reliable are local RAG and persistent vector memory in the tested configuration?",
+                               "RQ4: What filesystem boundary does the selected workspace provide for dedicated file tools compared with executable Bash and Python tools?",
+                               "RQ5: What deployment and reliability issues appear when running this stack natively on Windows?"
+                           ],
+    "safe_conclusions":  [
+                             "Qwen3 1.7B was substantially better suited to the tested 4 GB GPU than Qwen3 4B.",
+                             "Qwen3 1.7B remained fully GPU resident during standardized tests.",
+                             "Qwen3 4B required partial CPU offload during standardized tests.",
+                             "Local RAG recovered exact and semantic synthetic facts and persisted across a tested restart.",
+                             "Synthetic vector memory was retrievable across conversations in the tested configuration.",
+                             "Natural autonomous read_file invocation was unreliable for both tested Qwen models.",
+                             "The parser and read_file backend worked when the valid textual tool protocol was supplied.",
+                             "Dedicated filesystem tools enforced the selected workspace boundary in the tested path cases.",
+                             "Bash and Python execution retained ordinary operating-system filesystem permissions outside the selected workspace.",
+                             "A shell UI/request-policy mismatch was observed, but disabled-state shell execution was not demonstrated."
+                         ],
+    "limitations":  [
+                        "Evaluation was performed on one Windows laptop.",
+                        "Only Qwen3 1.7B and Qwen3 4B were compared for generation performance.",
+                        "The standardized benchmark used three runs per model.",
+                        "The benchmark used a fixed 4096-token context and 128-token generation limit.",
+                        "Agent evaluation used a small controlled read_file task.",
+                        "RAG and memory experiments used synthetic fixtures rather than a large real-world corpus.",
+                        "The filesystem evaluation was a controlled boundary test, not a comprehensive penetration test.",
+                        "Results are version-specific and should not automatically be generalized to later Odysseus, Ollama, model, driver, or dependency versions.",
+                        "September benchmark results used different runtime versions and are retained separately rather than merged with the October standardized dataset."
+                    ],
+    "artifacts":  {
+                      "environment_snapshot_text":  "results/environment_snapshot.txt",
+                      "environment_snapshot_json":  "results/environment_snapshot.json",
+                      "raw_benchmark_csv":  "results/model_benchmarks.csv",
+                      "benchmark_summary":  "results/model_benchmark_summary.csv",
+                      "historical_benchmark_csv":  "results/model_benchmarks_pre_version_control.csv",
+                      "rag_results":  "results/rag_results.csv",
+                      "memory_results":  "results/memory_results.csv",
+                      "agent_tool_results":  "results/agent_tool_results.csv",
+                      "security_results":  "results/security_results.csv",
+                      "benchmark_script":  "benchmarks/ollama_model_benchmark.ps1",
+                      "environment_script":  "benchmarks/environment_snapshot.ps1",
+                      "reproducibility_document":  "reproducibility/REPRODUCIBILITY.md",
+                      "test_methods":  "reproducibility/TEST_METHODS.md",
+                      "rag_fixture":  "fixtures/rag_synthetic_document.txt",
+                      "memory_fixture":  "fixtures/memory_synthetic_fact.txt",
+                      "agent_fixture":  "fixtures/agent_note.txt",
+                      "csv_fixture":  "fixtures/sample_data.csv"
+                  }
+}
