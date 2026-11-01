@@ -2,6 +2,9 @@
 message: "If you use this evaluation artifact in research or technical work, please cite it using these metadata."
 title: "Odysseus Local AI Windows Evaluation"
 type: software
+version: "1.0.0"
+date-released: "2026-11-01"
+repository-code: "https://github.com/griffinstalha/odysseus-local-ai-windows-evaluation"
 
 authors:
   - family-names: "Shakeel"

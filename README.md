@@ -319,6 +319,12 @@ See `ATTRIBUTION.md` for additional project-attribution notes.
 
 ## Status
 
+Release: **v1.0.0**
+
+Release date: **2026-11-01**
+
 Experimental evaluation package: **frozen**
 
 Integrity verification: **24 / 24 artifacts passed**
+
+
