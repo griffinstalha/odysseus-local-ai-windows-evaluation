@@ -1,0 +1,21 @@
+﻿section,item,details
+Environment,Operating system,Windows 11 Pro build 26200
+Environment,CPU,AMD Ryzen 7 5800H
+Environment,RAM,15.86 GB
+Environment,GPU,NVIDIA RTX 3050 Laptop GPU 4096 MiB
+Input,RAG fixture,SILVER-MOON-482; AURORA-NODE; 927451
+Input,Memory fixture,COBALT-RIVER-731
+Input,Agent fixture,ORBIT-GLASS-219
+Input,CSV fixture,sample_data.csv
+Service,Odysseus,Self-hosted agentic AI workspace
+Service,Ollama,qwen3:1.7b; qwen3:4b; all-minilm:l6-v2
+Service,ChromaDB,Local vector database
+Evaluation,Model benchmark,Throughput; RAM; VRAM; processor allocation
+Evaluation,RAG,Exact; semantic; restart persistence
+Evaluation,Vector memory,Storage; cross-conversation recall
+Evaluation,Agent tools,Natural invocation; forced protocol; backend execution
+Evaluation,Security boundary,ReadFile; WriteFile; Bash; Python
+Output,Structured results,CSV and JSON files
+Output,Manifest,experiment_manifest.json
+Output,Integrity,SHA256SUMS.txt
+Output,Documentation,REPRODUCIBILITY.md; TEST_METHODS.md

@@ -2,25 +2,54 @@
 
 Reproducible systems evaluation of a self-hosted agentic AI workspace on constrained consumer hardware.
 
-This repository evaluates **Odysseus** on Windows 11 with local LLM inference, RAG, vector memory, agent-tool execution, filesystem-boundary behavior, and reproducibility controls.
+This repository evaluates **Odysseus** on Windows 11 with local LLM inference, retrieval-augmented generation (RAG), vector memory, agent-tool execution, filesystem-boundary behavior, resource usage, and reproducibility controls.
 
 > This repository is an independent evaluation artifact. It does not claim authorship of Odysseus itself.
 
-## Why this project
+## Overview
 
-Self-hosted agentic AI systems combine several moving parts: local model serving, retrieval, vector storage, tool execution, UI policy, operating-system permissions, and hardware constraints.
+Self-hosted agentic AI workspaces combine several components that must work together reliably: local model serving, embeddings, vector storage, retrieval, persistent memory, tool execution, user-interface policy, operating-system permissions, and limited hardware resources.
 
-This project asks a practical question:
+This project evaluates how those components behave when Odysseus is deployed on a consumer Windows laptop with **16 GB RAM and a 4 GB NVIDIA RTX 3050 Laptop GPU**. The study focuses on practical deployment rather than claiming a universal benchmark of Odysseus or the tested models.
 
-**How well does a self-hosted agentic AI workspace behave on a Windows laptop with 16 GB RAM and a 4 GB mobile GPU?**
+The evaluation covers five areas:
 
-The evaluation focuses on five research questions:
+- local LLM inference performance and resource use;
+- controlled RAG retrieval and restart persistence;
+- cross-conversation vector-memory behavior;
+- agent tool-invocation reliability; and
+- workspace/file-access boundaries for dedicated file tools versus executable Bash/Python tools.
 
-1. Can the stack run practically on constrained consumer Windows hardware?
-2. How do Qwen3 1.7B and Qwen3 4B compare in throughput, memory use, and deployment fit?
-3. Does local RAG and vector memory work reliably in controlled tests?
-4. How reliable is autonomous agent tool invocation?
-5. What boundary does the selected workspace provide for file tools versus executable Bash/Python tools?
+All publication-facing tests use **synthetic fixtures**, and the experimental package includes structured result files, an experiment manifest, reproducibility documentation, and SHA-256 integrity verification.
+
+## Research questions
+
+The evaluation is organized around five research questions:
+
+**RQ1 — Deployment feasibility.**  
+Can the Odysseus stack run practically on constrained consumer Windows hardware?
+
+**RQ2 — Local model performance.**  
+How do Qwen3 1.7B and Qwen3 4B compare in generation throughput, observed RAM/VRAM use, and deployment fit on the tested machine?
+
+**RQ3 — Retrieval and memory reliability.**  
+Do local RAG and vector-memory functions work reliably in controlled synthetic tests, including retrieval after restart and recall across conversations?
+
+**RQ4 — Agent tool reliability.**  
+How reliably do the tested local models autonomously emit the tool protocol required by the Odysseus agent loop, and does the parser/backend execute correctly when valid protocol is supplied?
+
+**RQ5 — Workspace boundary behavior.**  
+What boundary does the selected workspace provide for dedicated file tools compared with executable Bash/Python tools operating with normal host permissions?
+
+## Evaluation workflow
+
+<p align="center">
+  <img src="public-evidence/figures/figure2_evaluation_architecture.png"
+       alt="Odysseus local evaluation workflow"
+       width="95%">
+</p>
+
+**Figure 1.** Evaluation-oriented workflow for the local Odysseus study. Synthetic fixtures are exercised through Odysseus, Ollama, ChromaDB, and agent tools, followed by model-performance, RAG, memory, agent-reliability, and workspace-boundary evaluations. Structured outputs are preserved with reproducibility metadata and SHA-256 integrity checks.
 
 ## Tested environment
 
@@ -73,6 +102,15 @@ Standardized configuration:
 In this specific standardized configuration, Qwen3 1.7B achieved about **4.33×** the median generation throughput of Qwen3 4B.
 
 This is a machine- and configuration-specific result, not a universal model-speed ratio.
+
+
+<p align="center">
+  <img src="public-evidence/figures/figure1_model_performance.png"
+       alt="Qwen3 local model performance comparison"
+       width="90%">
+</p>
+
+**Figure 2.** Local inference performance for Qwen3 1.7B and Qwen3 4B on the tested Windows 11 laptop. Points show the three measured runs, bars show median generation throughput, and whiskers show the observed min–max range. Resource annotations summarize median observed RAM/VRAM deltas and processor allocation for the tested configuration.
 
 ## RAG results
 
@@ -143,6 +181,15 @@ Interpretation:
 A separate frontend/request-state inconsistency was also observed: the shell UI could appear disabled while an Agent-intent request contained `allow_bash=true`. Successful shell execution from that exact disabled UI state was **not** demonstrated.
 
 Detailed results: [`results/security_results.csv`](results/security_results.csv)
+
+
+<p align="center">
+  <img src="public-evidence/figures/figure3_security_agent_summary.png"
+       alt="Security boundary and agent-tool behavior"
+       width="95%">
+</p>
+
+**Figure 3.** Summary of the tested filesystem boundary and agent-tool behavior. Dedicated `ReadFile`/`WriteFile` tools enforced the tested workspace boundary, while Bash and Python retained normal host permissions in the tested cases. Agent-tool failures are scoped to protocol emission in the controlled task; they do not imply that Qwen3 models generally cannot use tools.
 
 ## Windows deployment observations
 

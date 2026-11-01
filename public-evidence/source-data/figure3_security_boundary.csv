@@ -1,0 +1,9 @@
+﻿component,operation,status,interpretation
+ReadFileTool,Relative outside-workspace read,BLOCKED,Dedicated file tool enforced workspace boundary
+ReadFileTool,Absolute outside-workspace read,BLOCKED,Dedicated file tool enforced workspace boundary
+WriteFileTool,Relative outside-workspace write,BLOCKED,Dedicated file tool enforced workspace boundary
+WriteFileTool,Absolute outside-workspace write,BLOCKED,Dedicated file tool enforced workspace boundary
+BashTool,Outside-workspace read,ALLOWED,Normal host filesystem permissions remained available
+BashTool,Outside-workspace write,ALLOWED,Normal host filesystem permissions remained available
+PythonTool,Outside-workspace read,ALLOWED,Normal host filesystem permissions remained available
+PythonTool,Outside-workspace write,NOT TESTED,No claim made

@@ -1,0 +1,6 @@
+﻿scenario,status,observation
+Qwen3 1.7B natural read task,FAIL,No actual tool call was emitted
+Qwen3 4B natural read task,FAIL,No actual tool call was emitted
+Forced valid tool protocol,PASS,One valid fenced tool block was parsed
+read_file backend execution,PASS,Tool completed with exit code 0
+Forced end-to-end read,PASS,Returned synthetic marker ORBIT-GLASS-219
