@@ -211,12 +211,36 @@ These are recorded as deployment observations and are not automatically classifi
 ```text
 odysseus-evaluation/
 ├─ benchmarks/
+│  ├─ environment_snapshot.ps1
+│  └─ ollama_model_benchmark.ps1
+│
 ├─ fixtures/
-├─ notes/
+│  ├─ agent_note.txt
+│  ├─ memory_synthetic_fact.txt
+│  ├─ rag_synthetic_document.txt
+│  └─ sample_data.csv
+│
 ├─ public-evidence/
-├─ raw-evidence/
+│  ├─ figures/
+│  ├─ scripts/
+│  └─ source-data/
+│
 ├─ reproducibility/
+│  ├─ experiment_manifest.json
+│  ├─ generate_hashes.ps1
+│  ├─ REPRODUCIBILITY.md
+│  ├─ SHA256SUMS.txt
+│  ├─ TEST_METHODS.md
+│  └─ verify_hashes.ps1
+│
 └─ results/
+   ├─ archive/
+   ├─ model_benchmarks.csv
+   ├─ model_benchmark_summary.csv
+   ├─ rag_results.csv
+   ├─ memory_results.csv
+   ├─ agent_tool_results.csv
+   └─ security_results.csv
 ```
 
 ## Reproduce the benchmark
