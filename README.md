@@ -1,5 +1,7 @@
 # Odysseus Local AI Windows Evaluation
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23949699.svg)](https://doi.org/10.5281/zenodo.23949699)
+
 Reproducible systems evaluation of a self-hosted agentic AI workspace on constrained consumer hardware.
 
 This repository evaluates **Odysseus** on Windows 11 with local LLM inference, retrieval-augmented generation (RAG), vector memory, agent-tool execution, filesystem-boundary behavior, resource usage, and reproducibility controls.
@@ -305,6 +307,20 @@ Recommended operating assumptions:
 - do not use real secrets or credentials in test fixtures;
 - do not assume the workspace is an OS sandbox for Bash/Python;
 - review MCP integrations before enabling untrusted servers.
+
+## Citation
+
+The software artifact is archived on Zenodo.
+
+For the current stable release:
+
+**Talha Shakeel (2026). _Odysseus Local AI Windows Evaluation_ (Version 1.0.0). Zenodo.**  
+https://doi.org/10.5281/zenodo.23949700
+
+For the latest archived version of this project:
+
+https://doi.org/10.5281/zenodo.23949699
+
 
 ## Attribution
 
