@@ -4,6 +4,7 @@ title: "Odysseus Local AI Windows Evaluation"
 type: software
 version: "1.0.0"
 date-released: "2026-11-01"
+doi: "10.5281/zenodo.23949700"
 repository-code: "https://github.com/griffinstalha/odysseus-local-ai-windows-evaluation"
 
 authors:
